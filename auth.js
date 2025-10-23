@@ -21,6 +21,7 @@ async function signup(e) {
   e.preventDefault();
 
   if (signEmail.value && signName.value && signPhone.value && signPassword.value) {
+    showLoader();
     try {
       const { data, error } = await client.auth.signUp({
         email: signEmail.value,
@@ -34,7 +35,7 @@ async function signup(e) {
       });
       if (error) throw error;
 
-      showLoader();
+    
       Swal.fire({
         title: "Sign up successful!",
         text: "Now login with your new account 🎉",
@@ -43,13 +44,16 @@ async function signup(e) {
       }).then(() => {
         window.location.href = "login.html";
       });
+
     } catch (error) {
       console.error(error);
-    //     Swal.fire({
-    //     icon: "error",
-    //     title: "Signup Failed",
-    //     text: error.message || "Something went wrong 😢",
-    //   });
+      Swal.fire({
+        icon: "error",
+        title: "Signup Failed",
+        text: error.message || "Something went wrong 😢",
+      });
+    } finally {
+      hideLoader();
     }
   } else {
     Swal.fire({
