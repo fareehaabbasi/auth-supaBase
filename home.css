@@ -128,3 +128,67 @@ body {
   margin: 0.5rem 0;
   margin-left: 1rem;
 } 
+
+
+/* To-Do Section */
+.todo-section h2 {
+  color: #a47452;
+  letter-spacing: 1px;
+}
+
+.priority-buttons .priority-btn {
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.priority-btn.high {
+  background-color: #b84a4a;
+}
+.priority-btn.medium {
+  background-color: #c08b66;
+}
+.priority-btn.low {
+  background-color: #5a5a5a;
+}
+
+.priority-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(164, 116, 82, 0.4);
+}
+
+.todo-inputs {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.todo-inputs input,
+.todo-inputs textarea {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.todo-inputs input::placeholder,
+.todo-inputs textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.add-todo-btn {
+  background-color: #a47452;
+  color: #fff;
+  border-radius: 30px;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.add-todo-btn:hover {
+  background-color: #c08b66;
+  box-shadow: 0 0 15px #a47452;
+}
