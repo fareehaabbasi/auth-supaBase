@@ -154,7 +154,27 @@ async function signup(e) {
           },
         },
       });
-      if (error) throw error;
+      if (data) {
+        console.log(data);
+        const {user:{email, user_metadata:{Name, phone}}} = data;
+        try {
+            const { error } = await client
+            .from("user")
+            .insert({
+                name: Name,
+                emai: email,
+                phone:phone,
+            }
+            );
+            if(error) {
+                console.log(error);
+            }
+        }catch(err) {
+            console.log(err)
+        }
+    
+    }
+    if (error) throw error;
 
       Swal.fire({
         title: "Sign up successful!",
